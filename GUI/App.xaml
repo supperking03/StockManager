@@ -1,0 +1,25 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gui="clr-namespace:GUI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GUI.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <gui:AppBootstrapper x:Key="Bootstrapper"/>
+                    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary Source="Resources/AppColor.xaml"/>
+                <ResourceDictionary Source="Resources/MaterialThemes.xaml"/>
+
+                <!-- include your primary palette -->
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

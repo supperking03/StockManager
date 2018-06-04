@@ -1,0 +1,113 @@
+﻿<Window x:Class="GUI.Views.AppView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:singletons="clr-namespace:GUI.Singletons"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.Views"
+        xmlns:enums="clr-namespace:GUI.Enums"
+        mc:Ignorable="d"
+        Title="Quản lý đơn hàng" Height="1920" Width="1920" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ToolBarTray Style="{DynamicResource MaterialDesignToolBarTray}" DockPanel.Dock="Top" VerticalAlignment="Center" Cursor="Hand">
+                <ToolBar Style="{DynamicResource MaterialDesignToolBar}">
+                    <Button Content="Xác nhận đơn hàng" cal:Message.Attach="[Event Click] = [Action ApproveDonHang()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.Khach}">
+                                        <Setter Property="IsEnabled" Value="False"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Đơn hàng đang nhận" cal:Message.Attach="[Event Click] = [Action NhanDonHang()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.Khach}">
+                                        <Setter Property="IsEnabled" Value="False"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Đơn hàng đang giao" cal:Message.Attach="[Event Click] = [Action GiaoDonHang()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.Khach}">
+                                        <Setter Property="IsEnabled" Value="False"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Tổng kết" cal:Message.Attach="[Event Click] = [Action TongKet()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.GiamDoc}">
+                                        <Setter Property="IsEnabled" Value="True"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Quy định" cal:Message.Attach="[Event Click] = [Action QuyDinh()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.GiamDoc}">
+                                        <Setter Property="IsEnabled" Value="True"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Nhân viên" cal:Message.Attach="[Event Click] = [Action NhanVien()]">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Source={x:Static singletons:User.Instance}, Path=CurrentUserType}" Value="{x:Static enums:UserType.GiamDoc}">
+                                        <Setter Property="IsEnabled" Value="True"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Style.Setters>
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Tài khoản" cal:Message.Attach="[Event Click] = [Action TaiKhoan()]" Style="{DynamicResource MaterialDesignRaisedButton}">
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ContentControl x:Name="ActiveItem"></ContentControl>
+        </Grid>
+    </Grid>
+</Window>

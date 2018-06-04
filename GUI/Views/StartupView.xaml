@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="GUI.Views.StartupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:enums="clr-namespace:GUI.Enums"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:models="clr-namespace:GUI.Models"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             d:DesignHeight="1000" d:DesignWidth="1000">
+    <Grid>
+        <Image Source="pack://application:,,,/Cover.png" Stretch="Fill"/>
+    </Grid>
+</UserControl>

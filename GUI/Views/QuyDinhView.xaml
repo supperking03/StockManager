@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="GUI.Views.QuyDinhView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI.Views"
+             mc:Ignorable="d" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:models="clr-namespace:GUI.Models"
+             xmlns:singletons="clr-namespace:GUI.Singletons"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             d:DesignHeight="1000" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="WhiteSmoke">
+            <Label Content="Các tham số quy định" FontSize="26" VerticalAlignment="Center" Margin="50"></Label>
+        </Grid>
+        <StackPanel Grid.Row="1"   Margin="10,10,10,10">
+            <DockPanel LastChildFill="True">
+                <Label Content="Phí vận chuyển mỗi Km : " Margin="10,10,10,10"></Label>
+                <TextBox Text="{Binding PhiVanChuyenTrenKm, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"></TextBox>
+                <DockPanel.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Thay đổi thông số" ></MenuItem>
+                    </ContextMenu>
+                </DockPanel.ContextMenu>
+            </DockPanel>
+
+            <DockPanel LastChildFill="True">
+                <Label Content="Phí thu hộ                       : " Margin="10,10,10,10"></Label>
+                <TextBox Text="{Binding PhiThuHo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"></TextBox>
+                <DockPanel.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Thay đổi thông số" ></MenuItem>
+                    </ContextMenu>
+                </DockPanel.ContextMenu>
+            </DockPanel>
+            <Button Margin ="10,50,10,10"
+                    Width="150"
+                    Content="Hoàn tất"></Button>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
